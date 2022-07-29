@@ -19,6 +19,7 @@ import headerLogo from '../public/header-logo.png';
 import { useRouter } from 'next/router';
 import { useFormik } from 'formik';
 import { Card } from '@mui/material';
+import Footer from '../components/footer';
 
 const theme = createTheme();
 
@@ -51,72 +52,84 @@ const Login = () => {
   });
 
   return (
-    <Card
+    <Box
       sx={{
         mx: 'auto',
-        mt: 15,
         justifyContent: 'center',
+        boxShadow: 0,
         display: 'flex',
-        padding: 5,
+        padding: 0,
         flexDirection: 'column',
         alignItems: 'center',
       }}
     >
-      <Image src={headerLogo} width="135px" height="28.5px" alt="Logo" />
-      <Box component="form" onSubmit={formik.handleSubmit} sx={{ mt: 1 }}>
-        <TextField
-          error={Boolean(formik.touched.email && formik.errors.email)}
-          fullWidth
-          helperText={formik.touched.email && formik.errors.email}
-          label="Email Address"
-          margin="normal"
-          name="email"
-          onBlur={formik.handleBlur}
-          onChange={formik.handleChange}
-          type="email"
-          value={formik.values.email}
-          variant="outlined"
-        />
-        <TextField
-          error={Boolean(formik.touched.password && formik.errors.password)}
-          fullWidth
-          helperText={formik.touched.password && formik.errors.password}
-          label="Password"
-          margin="normal"
-          name="password"
-          onBlur={formik.handleBlur}
-          onChange={formik.handleChange}
-          type="password"
-          value={formik.values.password}
-          variant="outlined"
-        />
-        <FormControlLabel
-          control={<Checkbox value="remember" color="primary" />}
-          label="Remember me"
-        />
-        <Button
-          type="submit"
-          fullWidth
-          disabled={formik.isSubmitting}
-          variant="contained"
-          sx={{ mt: 3, mb: 2 }}
-        >
-          Sign In
-        </Button>
-        <Grid container>
-          <Grid item xs>
-            <Link href="/table"
-              variant="body2"
-              underline="hover"
-              sx={{
-                cursor: 'pointer'
-              }}>
-              Forgot password?
-            </Link>
+      <Image src={headerLogo} width="135px" height="28.5px" alt="Logo" />      
+      <Card
+        sx={{
+          mx: 'auto',
+          mt: 15,
+          justifyContent: 'center',
+          display: 'flex',
+          padding: 5,
+          flexDirection: 'column',
+          alignItems: 'center',
+        }}
+      >
+        <Box component="form" onSubmit={formik.handleSubmit} sx={{ mt: 1 }}>
+          <TextField
+            error={Boolean(formik.touched.email && formik.errors.email)}
+            fullWidth
+            helperText={formik.touched.email && formik.errors.email}
+            label="Email Address"
+            margin="normal"
+            name="email"
+            onBlur={formik.handleBlur}
+            onChange={formik.handleChange}
+            type="email"
+            value={formik.values.email}
+            variant="outlined"
+          />
+          <TextField
+            error={Boolean(formik.touched.password && formik.errors.password)}
+            fullWidth
+            helperText={formik.touched.password && formik.errors.password}
+            label="Password"
+            margin="normal"
+            name="password"
+            onBlur={formik.handleBlur}
+            onChange={formik.handleChange}
+            type="password"
+            value={formik.values.password}
+            variant="outlined"
+          />
+          <FormControlLabel
+            control={<Checkbox value="remember" color="primary" />}
+            label="Remember me"
+          />
+          <Button
+            type="submit"
+            fullWidth
+            disabled={formik.isSubmitting}
+            variant="contained"
+            sx={{ mt: 3, mb: 2 }}
+          >
+            Sign In
+          </Button>
+          <Grid container>
+            <Grid item xs>
+              <Link href="/table"
+                variant="body2"
+                underline="hover"
+                sx={{
+                  cursor: 'pointer'
+                }}>
+                Forgot password?
+              </Link>
+            </Grid>
           </Grid>
-        </Grid>
-      </Box>
-    </Card>
+        </Box>
+      </Card>
+    </Box>
   );
 
 }
@@ -137,7 +150,7 @@ export default function SignIn() {
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Login />
-        <Copyright sx={{ mt: 8, mb: 4 }} />
+        <Footer/>
       </Container>
     </ThemeProvider>
   );
