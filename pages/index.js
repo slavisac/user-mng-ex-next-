@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
@@ -10,15 +9,14 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import Copyright from '../components/copyright';
 import PrimaryAppBar from '../components/primaryAppBar';
 import Image from 'next/image';
 import * as Yup from 'yup';
 
-import headerLogo from '../public/header-logo.png';
+import headerLogo from '../public/header-logo2.png';
 import { useRouter } from 'next/router';
 import { useFormik } from 'formik';
-import { Card } from '@mui/material';
+import { Card, Typography } from '@mui/material';
 import Footer from '../components/footer';
 
 const theme = createTheme();
@@ -61,21 +59,29 @@ const Login = () => {
         padding: 0,
         flexDirection: 'column',
         alignItems: 'center',
+        mt: 17,
       }}
     >
-      <Image src={headerLogo} width="135px" height="28.5px" alt="Logo" />      
+      <Image src={headerLogo} width={260} height={55} alt="Logo" />
       <Card
         sx={{
           mx: 'auto',
-          mt: 15,
+          mt: 4,
           justifyContent: 'center',
           display: 'flex',
-          padding: 5,
+          padding: 4,
           flexDirection: 'column',
           alignItems: 'center',
         }}
       >
         <Box component="form" onSubmit={formik.handleSubmit} sx={{ mt: 1 }}>
+          <Typography
+            color="primary"
+            variant="h5"
+            display="flex"
+            justifyContent="center">
+            Login
+          </Typography>
           <TextField
             error={Boolean(formik.touched.email && formik.errors.email)}
             fullWidth
@@ -150,7 +156,7 @@ export default function SignIn() {
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Login />
-        <Footer/>
+        <Footer />
       </Container>
     </ThemeProvider>
   );
