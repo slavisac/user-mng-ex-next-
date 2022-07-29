@@ -18,6 +18,7 @@ import * as Yup from 'yup';
 import headerLogo from '../public/header-logo.png';
 import { useRouter } from 'next/router';
 import { useFormik } from 'formik';
+import { Card } from '@mui/material';
 
 const theme = createTheme();
 
@@ -50,12 +51,11 @@ const Login = () => {
   });
 
   return (
-    <Box
+    <Card
       sx={{
         mx: 'auto',
         mt: 15,
         justifyContent: 'center',
-        boxShadow: 4,
         display: 'flex',
         padding: 5,
         flexDirection: 'column',
@@ -105,13 +105,18 @@ const Login = () => {
         </Button>
         <Grid container>
           <Grid item xs>
-            <Link href="/table" variant="body2">
+            <Link href="/table"
+              variant="body2"
+              underline="hover"
+              sx={{
+                cursor: 'pointer'
+              }}>
               Forgot password?
             </Link>
           </Grid>
         </Grid>
       </Box>
-    </Box>
+    </Card>
   );
 
 }
