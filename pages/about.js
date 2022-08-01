@@ -1,35 +1,48 @@
 import * as React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
-import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import PrimaryAppBar from '../components/primaryAppBar';
 import Footer from '../components/footer';
+import { Box, Grid, Typography } from '@mui/material';
+import { AbaoutMDPanel } from '../components/about/md-panel';
+import { AbaoutApplicationPanel } from '../components/about/application-panel';
 
 
 const theme = createTheme();
 
-export default function About() {
-  
-  return (
-    <ThemeProvider theme={theme}>
-      <PrimaryAppBar link="/"/>
-      <Container component="main" maxWidth="xs">
-        <CssBaseline />
-        <Box
-          sx={{
-            marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-          }}
+
+const About = () => (
+
+  <ThemeProvider theme={theme}>
+    <PrimaryAppBar link="/" />
+    <Container component="main" >
+      <CssBaseline />
+      <Box
+        component="main"
+        maxWidth="xs"
+        sx={{
+          flexGrow: 1,
+          py: 8
+        }}
+      >
+        <Grid
+          container
+          spacing={3}
         >
-          <Box  sx={{ mt: 1 }}>
-            
-          </Box>
-        </Box>
-        <Footer/>
-      </Container>
-    </ThemeProvider>
-  );
-}
+          <Grid item xs={6} direction="column" >
+            <AbaoutApplicationPanel title="Application"/>
+          </Grid>
+          <Grid item xs={6} direction="column" >
+            <AbaoutMDPanel title="Technical support"/>
+          </Grid>
+        </Grid>
+      </Box>
+      <Footer />
+    </Container>
+  </ThemeProvider>
+
+);
+
+
+export default About;
