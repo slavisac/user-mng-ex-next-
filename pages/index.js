@@ -18,6 +18,8 @@ import { useRouter } from 'next/router';
 import { useFormik } from 'formik';
 import { Card, Typography } from '@mui/material';
 import Footer from '../components/footer';
+import Head from 'next/head';
+import { users } from '../__mocks__/users';
 
 const theme = createTheme();
 
@@ -45,7 +47,7 @@ const Login = () => {
           'Password is required')
     }),
     onSubmit: () => {
-      router.push('/table');
+      router.push('/main');
     }
   });
 
@@ -123,7 +125,7 @@ const Login = () => {
           </Button>
           <Grid container>
             <Grid item xs>
-              <Link href="/table"
+              <Link href="/main"
                 variant="body2"
                 underline="hover"
                 sx={{
@@ -141,17 +143,15 @@ const Login = () => {
 }
 
 export default function SignIn() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
+  
 
   return (
     <ThemeProvider theme={theme}>
+      <Head>
+        <title>
+          eWheel | Login
+        </title>
+      </Head>
       <PrimaryAppBar link="/about" />
       <Container component="main" maxWidth="xs">
         <CssBaseline />

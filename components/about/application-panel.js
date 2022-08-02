@@ -1,8 +1,8 @@
 import { Card, CardContent, CardHeader, Grid } from '@mui/material';
 import Image from 'next/image';
 import dwLogo from '../../public/header-logo2.png';
-import { Label } from '../label';
-import { Text } from '../text';
+import { Label } from './label';
+import { Text } from './text';
 
 
 export const AbaoutApplicationPanel = (props) => (

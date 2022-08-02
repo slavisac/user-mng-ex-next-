@@ -7,6 +7,7 @@ import Footer from '../components/footer';
 import { Box, Grid, Typography } from '@mui/material';
 import { AbaoutMDPanel } from '../components/about/md-panel';
 import { AbaoutApplicationPanel } from '../components/about/application-panel';
+import Head from 'next/head';
 
 
 const theme = createTheme();
@@ -15,6 +16,11 @@ const theme = createTheme();
 const About = () => (
 
   <ThemeProvider theme={theme}>
+    <Head>
+      <title>
+        eWheel | About
+      </title>
+    </Head>
     <PrimaryAppBar link="/" />
     <Container component="main" >
       <CssBaseline />
@@ -31,10 +37,10 @@ const About = () => (
           spacing={3}
         >
           <Grid item xs={6} direction="column" >
-            <AbaoutApplicationPanel title="Application"/>
+            <AbaoutApplicationPanel title="Application" />
           </Grid>
           <Grid item xs={6} direction="column" >
-            <AbaoutMDPanel title="Technical support"/>
+            <AbaoutMDPanel title="Technical support" />
           </Grid>
         </Grid>
       </Box>

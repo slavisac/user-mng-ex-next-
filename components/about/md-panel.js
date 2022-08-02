@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, Grid, Link, Typography } from '@mui/material';
 import Image from 'next/image';
 import mdLogo from '../../public/md-logo.png';
-import { Text } from '../text';
+import { Text } from './text';
 
 
 export const AbaoutMDPanel = (props) => (
