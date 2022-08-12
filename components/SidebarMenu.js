@@ -2,8 +2,6 @@ import { Collapse, List, ListItem, ListItemButton, ListItemIcon, ListItemText } 
 import { useRouter } from 'next/router';
 import PropTypes from "prop-types";
 import { useState } from 'react';
-import { loadCSS } from 'fg-loadcss';
-import { useEffect } from 'react';
 import { AccountCircle, ExpandLess, ExpandMore } from '@mui/icons-material';
 import ListAltIcon from '@mui/icons-material/ListAlt';
 import SettingsIcon from '@mui/icons-material/Settings';
@@ -168,19 +166,7 @@ const SimpleMenuItem = (item, open) => {
         e.preventDefault();
         router.push(item.url);
     }
-
-    useEffect(() => {
-        const node = loadCSS(
-            'https://use.fontawesome.com/releases/v5.14.0/css/all.css',
-            // Inject before JSS
-            document.querySelector('#font-awesome-css') || document.head.firstChild,
-        );
-
-        return () => {
-            node.parentNode.removeChild(node);
-        };
-    }, []);
-
+    
     return (
         <ListItem key={item.id} disablePadding sx={{ display: "block" }}>
             <ListItemButton

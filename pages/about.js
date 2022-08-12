@@ -84,7 +84,7 @@ const MDPanel = () => {
                 }} />
             <CardContent>
                 <Grid container spacing={2}>
-                    <Grid item xs={4} direction="column" mt={2}>
+                    <Grid item xs={4} mt={2}>
                         <Image src="/images/md-logo.png" width="135px" height="135px" alt="MDLogo" />
                     </Grid>
                     <Grid item xs={8} >
@@ -120,10 +120,10 @@ const AppPanel = () => {
                     }} />
                 <CardContent>
                     <Grid container spacing={2}>
-                        <Grid item xs={4} direction="column" mt={2}>
+                        <Grid item xs={4} mt={2}>
                             <Image src="/images/header-logo2.png" width="135px" height="32px" alt="MDLogo" />
                         </Grid>
-                        <Grid item xs={8} direction="column" >
+                        <Grid item xs={8} >
                             <Label title="Unternehmen:" />
                             <Text title="Wheel Wizard Eine Betriebsstätte der DentWizard GmbH" />
                             <Label title="Anwendung:" />
