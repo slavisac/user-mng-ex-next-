@@ -33,7 +33,7 @@ const LoginLayout = ({ children }) => {
 
             <Box sx={{ flexGrow: 1 }} />
             <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-              <Link href="/about" passHref >
+              <Link href="/about" >
                 <InfoIcon sx={{
                   cursor: 'pointer',
                   color: 'primary.contrastText'

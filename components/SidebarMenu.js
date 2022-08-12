@@ -267,7 +267,7 @@ const ComposeMenuItem = (item, open) => {
     };
 
     return (
-        <ListItem disablePadding sx={{ display: "block" }}>
+        <ListItem key={item.id} disablePadding sx={{ display: "block" }}>
             <ListItemButton
                 onClick={handleClick}
                 sx={{
@@ -305,8 +305,6 @@ const ComposeMenuItem = (item, open) => {
 
 ComposeMenuItem.propTypes = {
     item: PropTypes.func,
-    handleDrawerOpen: PropTypes.func,
-    handleDrawerClose: PropTypes.func,
     open: PropTypes.bool,
 };
 

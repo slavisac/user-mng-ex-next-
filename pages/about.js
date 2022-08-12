@@ -87,7 +87,7 @@ const MDPanel = () => {
                     <Grid item xs={4} direction="column" mt={2}>
                         <Image src="/images/md-logo.png" width="135px" height="135px" alt="MDLogo" />
                     </Grid>
-                    <Grid item xs={8} direction="column" >
+                    <Grid item xs={8} >
                         <Text title="MD Software & Design" />
                         <Text title="Michael Dudenko" />
                         <Text title="53347 Alfter" />

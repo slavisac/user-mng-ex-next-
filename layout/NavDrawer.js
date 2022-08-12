@@ -46,13 +46,13 @@ export default function NavDrawer({ children }) {
             <Box sx={{ display: "flex" }}>
                 <CssBaseline />
                 <Header
-                    open={!matchDownMd & open}
+                    open={!matchDownMd && open}
                     handleActiveToggle={handleActiveToggle}
                 />
                 <Sidebar
                     handleDrawerOpen={handleDrawerOpen}
                     handleDrawerClose={handleDrawerClose}
-                    open={!matchDownMd & open}
+                    open={!matchDownMd && open}
                 />
                 <Box component="main" sx={{ flexGrow: 1 }}>
                     <DrawerHeader />

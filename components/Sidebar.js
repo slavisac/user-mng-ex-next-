@@ -60,15 +60,8 @@ const Drawer = styled(MuiDrawer, {
 }));
 
 export default function Sidebar(props) {
-    const { handleDrawerOpen, handleDrawerClose, open } =
-        props;
-
-    const [dashboardDropdown, setDashboardDropdown] = React.useState(false);
-
-    const handleDashboardClick = () => {
-        setDashboardDropdown(!dashboardDropdown);
-    };
-
+    const { handleDrawerOpen, handleDrawerClose, open } = props;
+                
     return (
         <ThemeProvider
             theme={createTheme({
@@ -76,10 +69,7 @@ export default function Sidebar(props) {
                     MuiListItemButton: {
                         defaultProps: {
                             disableTouchRipple: true,
-                        },
-                        palette: {
-                            primary: { main: "rgb(0, 0, 246)" }
-                        },
+                        }
                     },
                 },
             })}
