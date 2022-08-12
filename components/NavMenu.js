@@ -2,13 +2,13 @@ import { Avatar, Box, Divider, IconButton, ListItemIcon, ListItemText, Menu, Men
 import { useRouter } from "next/router";
 import { useState } from "react";
 
-import { AccountCircle, Person } from "@mui/icons-material";
+import Person from "@mui/icons-material/Person";
 import LogoutIcon from '@mui/icons-material/Logout';
 import InfoIcon from '@mui/icons-material/Info';
 
 import { getInitials } from "../utility/get-initials";
 
-
+import css from "../styles/SidebarMenu.module.css";
 
 const NavMenu = () => {
 
@@ -38,7 +38,7 @@ const NavMenu = () => {
 
     const menuId = "account-menu";
     const renderMenu = (
-        <Menu
+        <Menu 
             anchorEl={anchorEl}
             anchorOrigin={{
                 vertical: "bottom",
@@ -54,24 +54,24 @@ const NavMenu = () => {
             onClose={handleMenuClose}
         >
             <MenuItem onClick={handleMenuClose}>
-                <ListItemIcon>
-                    <Person fontSize="small" />
+                <ListItemIcon >
+                    <Person fontSize="small" className={css.colored}/>
                 </ListItemIcon>
-                <ListItemText>My account</ListItemText>
+                <ListItemText className={css.colored}>My account</ListItemText>
             </MenuItem>
             <Divider />
             <MenuItem onClick={handleAbout} >
                 <ListItemIcon>
-                    <InfoIcon fontSize="small" />
+                    <InfoIcon fontSize="small" className={css.colored}/>
                 </ListItemIcon>
-                <ListItemText>About</ListItemText>
+                <ListItemText className={css.colored}>About</ListItemText>
             </MenuItem>
             <Divider />
             <MenuItem onClick={handleLogout}>
                 <ListItemIcon>
-                    <LogoutIcon fontSize="small" />
+                    <LogoutIcon fontSize="small" className={css.colored}/>
                 </ListItemIcon>
-                <ListItemText>Logout</ListItemText>
+                <ListItemText className={css.colored}>Logout</ListItemText>
             </MenuItem>
         </Menu>
     );
@@ -97,7 +97,7 @@ const NavMenu = () => {
                     </Avatar>
                 </IconButton>
             </Box>
-            {renderMenu}
+            {renderMenu}            
         </>
     )
 }

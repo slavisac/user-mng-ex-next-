@@ -8,7 +8,6 @@ import { styled } from "@mui/material/styles";
 
 import NavMenu from "./NavMenu";
 import PropTypes from "prop-types";
-import lightTheme from "../styles/theme/lightTheme";
 
 const drawerWidth = 240;
 
