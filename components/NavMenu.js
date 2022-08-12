@@ -1,9 +1,10 @@
-import { Avatar, Box, IconButton, Menu, MenuItem, Typography } from "@mui/material";
+import { Avatar, Box, Divider, IconButton, ListItemIcon, ListItemText, Menu, MenuItem, Typography } from "@mui/material";
 import { useRouter } from "next/router";
 import { useState } from "react";
 
-import MoreIcon from "@mui/icons-material/MoreVert";
-import { AccountCircle } from "@mui/icons-material";
+import { AccountCircle, Person } from "@mui/icons-material";
+import LogoutIcon from '@mui/icons-material/Logout';
+import InfoIcon from '@mui/icons-material/Info';
 
 import { getInitials } from "../utility/get-initials";
 
@@ -14,26 +15,15 @@ const NavMenu = () => {
     const router = useRouter();
 
     const [anchorEl, setAnchorEl] = useState(null);
-    const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
 
     const isMenuOpen = Boolean(anchorEl);
-    const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
     const handleProfileMenuOpen = (event) => {
         setAnchorEl(event.currentTarget);
     };
 
-    const handleMobileMenuClose = () => {
-        setMobileMoreAnchorEl(null);
-    };
-
     const handleMenuClose = () => {
         setAnchorEl(null);
-        handleMobileMenuClose();
-    };
-
-    const handleMobileMenuOpen = (event) => {
-        setMobileMoreAnchorEl(event.currentTarget);
     };
 
     const handleAbout = async (e) => {
@@ -46,12 +36,12 @@ const NavMenu = () => {
         router.push("/login");
     }
 
-    const menuId = "primary-search-account-menu";
+    const menuId = "account-menu";
     const renderMenu = (
         <Menu
             anchorEl={anchorEl}
             anchorOrigin={{
-                vertical: "top",
+                vertical: "bottom",
                 horizontal: "right",
             }}
             id={menuId}
@@ -63,44 +53,25 @@ const NavMenu = () => {
             open={isMenuOpen}
             onClose={handleMenuClose}
         >
-            <MenuItem onClick={handleMenuClose}>My account</MenuItem>
             <MenuItem onClick={handleMenuClose}>
-                <a onClick={handleAbout}>About</a>
+                <ListItemIcon>
+                    <Person fontSize="small" />
+                </ListItemIcon>
+                <ListItemText>My account</ListItemText>
             </MenuItem>
-            <MenuItem onClick={handleMenuClose}>
-                <a onClick={handleLogout}>Logout</a>
+            <Divider />
+            <MenuItem onClick={handleAbout} >
+                <ListItemIcon>
+                    <InfoIcon fontSize="small" />
+                </ListItemIcon>
+                <ListItemText>About</ListItemText>
             </MenuItem>
-        </Menu>
-    );
-
-    const mobileMenuId = "primary-search-account-menu-mobile";
-    const renderMobileMenu = (
-        <Menu
-            anchorEl={mobileMoreAnchorEl}
-            anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-            }}
-            id={mobileMenuId}
-            keepMounted
-            transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-            }}
-            open={isMobileMenuOpen}
-            onClose={handleMobileMenuClose}
-        >
-            <MenuItem onClick={handleProfileMenuOpen}>
-                <IconButton
-                    size="large"
-                    aria-label="account of current user"
-                    aria-controls="primary-search-account-menu"
-                    aria-haspopup="true"
-                    color="inherit"
-                >
-                    <AccountCircle />
-                </IconButton>
-                <p>Profile</p>
+            <Divider />
+            <MenuItem onClick={handleLogout}>
+                <ListItemIcon>
+                    <LogoutIcon fontSize="small" />
+                </ListItemIcon>
+                <ListItemText>Logout</ListItemText>
             </MenuItem>
         </Menu>
     );
@@ -113,7 +84,7 @@ const NavMenu = () => {
                     size="large"
                     edge="end"
                     aria-label="account of current user"
-                    // aria-controls={menuId}
+                    aria-controls={menuId}
                     aria-haspopup="true"
                     onClick={handleProfileMenuOpen}
                     color="inherit"
@@ -126,19 +97,6 @@ const NavMenu = () => {
                     </Avatar>
                 </IconButton>
             </Box>
-            <Box sx={{ display: { xs: "flex", md: "none" } }}>
-                <IconButton
-                    size="large"
-                    aria-label="show more"
-                    aria-controls={mobileMenuId}
-                    aria-haspopup="true"
-                    onClick={handleMobileMenuOpen}
-                    color="inherit"
-                >
-                    <MoreIcon />
-                </IconButton>
-            </Box>
-            {renderMobileMenu}
             {renderMenu}
         </>
     )
