@@ -82,7 +82,7 @@ export default function Sidebar(props) {
             >
                 <DrawerHeader>
                     <ListItemButton component="a" href="/" >
-                        <Image src="/images/header-logo2.png" layout="intrinsic" width={196.68} height={39.84} />
+                        <Image src="/images/header-logo2.png" layout="intrinsic" width={196.68} height={39.84} alt="Logo"/>
                     </ListItemButton>
                 </DrawerHeader>
                 <Divider />

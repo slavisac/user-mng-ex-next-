@@ -6,6 +6,7 @@ import { ThemeProvider, CssBaseline } from '@mui/material';
 import createEmotionCache from '../utility/createEmotionCache';
 import lightTheme from '../styles/theme/lightTheme';
 import '../styles/globals.css';
+import EmptyLayout from '../layout/EmptyLayout';
 
 const clientSideEmotionCache = createEmotionCache();
 
