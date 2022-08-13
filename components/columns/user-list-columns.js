@@ -1,15 +1,10 @@
-import { Avatar, Box, Card, Checkbox, Table, TableBody, TableCell, TableHead, TablePagination, TableRow } from "@mui/material";
+import { Avatar } from "@mui/material";
 import { getInitials } from "../../utility/get-initials";
-import PropTypes from 'prop-types';
 // import { format } from 'date-fns';
-import { DataGrid } from '@mui/x-data-grid';
 
 
 
-export const UserListResults = ({ users, ...rest }) => {
-
-
-    const columns = [
+export const userListColumns = [
         {
             field: 'name',
             headerName: '',
@@ -80,26 +75,4 @@ export const UserListResults = ({ users, ...rest }) => {
     ];
 
 
-    return (
-        <Card {...rest}>
-            <div style={{ width: '100%' }}>
-                <DataGrid
-                    rows={users}
-                    columns={columns}
-                    pageSize={10}
-                    rowsPerPageOptions={[10]}
-                    checkboxSelection
-                    autoHeight
-                    sx={{
-                        color: 'primary.main',
-                        boxShadow: 2,
-                    }}
-                />
-            </div>
-        </Card>
-    )
-};
 
-UserListResults.propTypes = {
-    users: PropTypes.array.isRequired
-};

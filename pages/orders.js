@@ -1,6 +1,12 @@
+import { Box, Button, Card, CardActions, CardContent, CardHeader, ListItemText, Menu, MenuItem } from '@mui/material';
 import Head from 'next/head'
+
+import ListResults from '../components/list-results';
+import SplitButton from '../components/SplitButton';
 import NavDrawer from '../layout/NavDrawer';
-import Dashboard from './admin/dashboard'
+
+import { orderListColumns } from "../components/columns/order-list-columns";
+import { orders } from '../__mocks__/orders';
 
 
 const Orders = () => {
@@ -12,7 +18,42 @@ const Orders = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Dashboard />
+      <Card
+        sx={{
+          m: 2,
+          height: 1
+        }}>
+        <CardHeader
+          component={Box}
+          title="Orders"
+          sx={{
+            color: 'primary.main',
+            boxShadow: "0px 0px 1px grey"
+          }}
+        />
+        <CardContent>
+          <Box sx={{ mt: 3 }}>
+            <ListResults rows={orders} columns={orderListColumns}/>
+          </Box>
+        </CardContent>
+        <CardActions>
+          <Button variant="contained">Add User</Button>
+          <Button variant="contained">Activate</Button>
+          <Button variant="contained">Deactivate</Button>
+          <SplitButton />
+          <Button variant="contained" >
+            Deactivate
+          </Button>
+          <Menu>
+            <MenuItem>
+              <ListItemText >About</ListItemText>
+            </MenuItem>
+            <MenuItem>
+              <ListItemText >About</ListItemText>
+            </MenuItem>
+          </Menu>
+        </CardActions>
+      </Card>
     </>
   )
 }
