@@ -1,15 +1,23 @@
 import { Box, Button, Card, CardActions, CardContent, CardHeader, ListItemText, Menu, MenuItem } from '@mui/material';
 import Head from 'next/head'
 
-import ListResults from '../components/list-results';
 import SplitButton from '../components/SplitButton';
 import NavDrawer from '../layout/NavDrawer';
 
+import ListResults from '../components/ListResults';
 import { orderListColumns } from "../components/columns/order-list-columns";
 import { orders } from '../__mocks__/orders';
+import DropDownButton from '../components/DropDownButton';
 
 
 const Orders = () => {
+
+  const actions = ['Delete', 'Cancel', 'Generate GLS-label']
+
+  const handleAction = (index) => {
+    console.info("You clicked " + actions[index])
+  }
+
   return (
     <>
       <Head>
@@ -36,22 +44,9 @@ const Orders = () => {
             <ListResults rows={orders} columns={orderListColumns}/>
           </Box>
         </CardContent>
-        <CardActions>
-          <Button variant="contained">Add User</Button>
-          <Button variant="contained">Activate</Button>
-          <Button variant="contained">Deactivate</Button>
-          <SplitButton />
-          <Button variant="contained" >
-            Deactivate
-          </Button>
-          <Menu>
-            <MenuItem>
-              <ListItemText >About</ListItemText>
-            </MenuItem>
-            <MenuItem>
-              <ListItemText >About</ListItemText>
-            </MenuItem>
-          </Menu>
+        <CardActions sx={{justifyContent: "flex-end", mr: 1}}>        
+          <Button variant="contained">Add new</Button>
+          <DropDownButton title='Action' actions={actions} handleAction={handleAction} />
         </CardActions>
       </Card>
     </>

@@ -1,29 +1,22 @@
 import Head from 'next/head'
-import { styled } from '@mui/material/styles';
-import { Box, Button, ButtonGroup, Card, CardActions, CardContent, CardHeader, IconButton, ListItemText, Menu, MenuItem } from '@mui/material';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
+import { Box, Button, Card, CardActions, CardContent, CardHeader, ListItemText, Menu, MenuItem } from '@mui/material';
 
 import NavDrawer from '../../layout/NavDrawer';
 
-import SplitButton from '../../components/SplitButton';
-import ListResults from '../../components/list-results';
-
+import ListResults from '../../components/ListResults';
 import { userListColumns } from "../../components/columns/user-list-columns";
 import { users } from '../../__mocks__/users';
+import DropDownButton from '../../components/DropDownButton';
 
-const ExpandMore = styled((props) => {
-  const { expand, ...other } = props;
-  return <IconButton {...other} />;
-})(({ theme, expand }) => ({
-  transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
-  marginLeft: 'auto',
-  transition: theme.transitions.create('transform', {
-    duration: theme.transitions.duration.shortest,
-  }),
-}));
 
 const Users = () => {
+
+  const actions = ['Delete', 'Purge', 'Reset password'];
+
+  const handleAction = (ix) => {
+    console.log("You click " + actions[ix])
+  }
+
   return (
     <>
       <Head>
@@ -56,22 +49,11 @@ const Users = () => {
             <ListResults rows={users} columns={userListColumns}/>
           </Box>
         </CardContent>
-        <CardActions>
+        <CardActions sx={{justifyContent: "flex-end", mr: 1}}>
           <Button variant="contained">Add User</Button>
           <Button variant="contained">Activate</Button>
           <Button variant="contained">Deactivate</Button>
-          <SplitButton />
-          <Button variant="contained" >
-            Deactivate
-          </Button>
-          <Menu>
-            <MenuItem>
-              <ListItemText >About</ListItemText>
-            </MenuItem>
-            <MenuItem>
-              <ListItemText >About</ListItemText>
-            </MenuItem>
-          </Menu>
+          <DropDownButton title={'Actions'} actions={actions} handleAction={handleAction}/>          
         </CardActions>
       </Card>
     </>
