@@ -79,6 +79,9 @@ export default function Sidebar(props) {
                 open={open}
                 onMouseEnter={handleDrawerOpen}
                 onMouseLeave={handleDrawerClose}
+                sx={{
+                    boxShadow: 8, 
+                }}
             >
                 <DrawerHeader>
                     <ListItemButton component="a" href="/" >
