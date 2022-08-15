@@ -94,10 +94,14 @@ const MDPanel = () => {
                         <Text title="Deutschland" />
                         <br />
                         <Link target="_blank" href="mailto:info@md-softwaredesign.de">
-                            <Text title="info@md-softwaredesign.de" />
+                            <a>
+                                <Text title="info@md-softwaredesign.de" />
+                            </a>
                         </Link>
                         <Link target="_blank" href="https://www.md-softwaredesign.de/">
-                            <Text title="https://www.md-softwaredesign.de/" />
+                            <a>
+                                <Text title="https://www.md-softwaredesign.de/" />
+                            </a>
                         </Link>
                     </Grid>
                 </Grid>
