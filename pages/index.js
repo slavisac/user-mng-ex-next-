@@ -1,7 +1,6 @@
-import Head from 'next/head'
-import NavDrawer from '../layout/NavDrawer';
-import Dashboard from './admin/dashboard'
-
+import Head from "next/head";
+import NavDrawer from "../layout/NavDrawer";
+import Dashboard from "./admin/dashboard";
 
 const Home = () => {
   return (
@@ -14,8 +13,8 @@ const Home = () => {
 
       {/* <Dashboard /> */}
     </>
-  )
-}
+  );
+};
 
 Home.Layout = NavDrawer;
 

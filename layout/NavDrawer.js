@@ -8,57 +8,57 @@ import { ThemeProvider } from "@emotion/react";
 import lightTheme from "../styles/theme/lightTheme";
 
 const DrawerHeader = styled("div")(({ theme }) => ({
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "flex-end",
-    padding: theme.spacing(0, 1),
-    // necessary for content to be below app bar
-    ...theme.mixins.toolbar,
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "flex-end",
+  padding: theme.spacing(0, 1),
+  // necessary for content to be below app bar
+  ...theme.mixins.toolbar,
 }));
 
 export default function NavDrawer({ children }) {
-    const theme = useTheme();
-    const [open, setOpen] = React.useState(true);
-    const [active, setActive] = React.useState(false);
+  const theme = useTheme();
+  const [open, setOpen] = React.useState(true);
+  const [active, setActive] = React.useState(false);
 
-    const matchDownMd = useMediaQuery(theme.breakpoints.down('sm'));
+  const matchDownMd = useMediaQuery(theme.breakpoints.down("sm"));
 
-    const handleDrawerOpen = () => {
-        active === true ? setOpen(true) : {};
-    };
+  const handleDrawerOpen = () => {
+    active === true ? setOpen(true) : {};
+  };
 
-    const handleDrawerClose = () => {
-        active === true ? setOpen(false) : {};
-    };
+  const handleDrawerClose = () => {
+    active === true ? setOpen(false) : {};
+  };
 
-    const handleActiveToggle = () => {
-        if (active === true) {
-            setOpen(true);
-            setActive(false);
-        } else {
-            setOpen(false);
-            setActive(true);
-        }
-    };
+  const handleActiveToggle = () => {
+    if (active === true) {
+      setOpen(true);
+      setActive(false);
+    } else {
+      setOpen(false);
+      setActive(true);
+    }
+  };
 
-    return (
-        <ThemeProvider theme={lightTheme}>
-            <Box sx={{ display: "flex" }}>
-                <CssBaseline />
-                <Header
-                    open={!matchDownMd && open}
-                    handleActiveToggle={handleActiveToggle}
-                />
-                <Sidebar
-                    handleDrawerOpen={handleDrawerOpen}
-                    handleDrawerClose={handleDrawerClose}
-                    open={!matchDownMd && open}
-                />
-                <Box component="main" sx={{ flexGrow: 1 }}>
-                    <DrawerHeader />
-                    {children}
-                </Box>
-            </Box>
-        </ThemeProvider>
-    );
+  return (
+    <ThemeProvider theme={lightTheme}>
+      <Box sx={{ display: "flex" }}>
+        <CssBaseline />
+        <Header
+          open={!matchDownMd && open}
+          handleActiveToggle={handleActiveToggle}
+        />
+        <Sidebar
+          handleDrawerOpen={handleDrawerOpen}
+          handleDrawerClose={handleDrawerClose}
+          open={!matchDownMd && open}
+        />
+        <Box component="main" sx={{ flexGrow: 1 }}>
+          <DrawerHeader />
+          {children}
+        </Box>
+      </Box>
+    </ThemeProvider>
+  );
 }

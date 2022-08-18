@@ -1,6 +1,5 @@
-import Head from 'next/head'
-import NavDrawer from '../../layout/NavDrawer';
-
+import Head from "next/head";
+import NavDrawer from "../../layout/NavDrawer";
 
 const Roles = () => {
   return (
@@ -11,8 +10,8 @@ const Roles = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
     </>
-  )
-}
+  );
+};
 
 Roles.Layout = NavDrawer;
 

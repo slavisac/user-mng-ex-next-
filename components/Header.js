@@ -29,34 +29,32 @@ const AppBar = styled(MuiAppBar, {
   }),
 }));
 
-
 export default function Header(props) {
   const { open, handleActiveToggle } = props;
 
-  
   const onClick = (event) => {
     handleActiveToggle();
   };
 
   return (
-      <AppBar position="fixed" open={open}>
-        <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            onClick={onClick}             
-          >
-            <MenuIcon />
-          </IconButton>
-          <NavMenu />
-        </Toolbar>
-      </AppBar>    
+    <AppBar position="fixed" open={open}>
+      <Toolbar>
+        <IconButton
+          size="large"
+          edge="start"
+          color="inherit"
+          aria-label="open drawer"
+          onClick={onClick}
+        >
+          <MenuIcon />
+        </IconButton>
+        <NavMenu />
+      </Toolbar>
+    </AppBar>
   );
 }
 
 Header.propTypes = {
   open: PropTypes.bool,
-  handleActiveToggle: PropTypes.func,  
+  handleActiveToggle: PropTypes.func,
 };

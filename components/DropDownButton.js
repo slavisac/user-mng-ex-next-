@@ -1,23 +1,19 @@
-import * as React from 'react';
-import Button from '@mui/material/Button';
-import ButtonGroup from '@mui/material/ButtonGroup';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import ClickAwayListener from '@mui/material/ClickAwayListener';
-import Grow from '@mui/material/Grow';
-import Paper from '@mui/material/Paper';
-import Popper from '@mui/material/Popper';
-import MenuItem from '@mui/material/MenuItem';
-import MenuList from '@mui/material/MenuList';
+import * as React from "react";
+import Button from "@mui/material/Button";
+import ButtonGroup from "@mui/material/ButtonGroup";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import ClickAwayListener from "@mui/material/ClickAwayListener";
+import Grow from "@mui/material/Grow";
+import Paper from "@mui/material/Paper";
+import Popper from "@mui/material/Popper";
+import MenuItem from "@mui/material/MenuItem";
+import MenuList from "@mui/material/MenuList";
 import PropTypes from "prop-types";
 
-
-
-const DropDownButton = ({title, actions, handleAction}) => {
-  
+const DropDownButton = ({ title, actions, handleAction }) => {
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
   const [selectedIndex, setSelectedIndex] = React.useState(1);
-
 
   const handleMenuItemClick = (event, index) => {
     setSelectedIndex(index);
@@ -29,21 +25,26 @@ const DropDownButton = ({title, actions, handleAction}) => {
     setOpen((prevOpen) => !prevOpen);
   };
 
-  const handleClose = (event) => {   
+  const handleClose = (event) => {
     if (anchorRef.current && anchorRef.current.contains(event.target)) {
-        return;
-      }  
+      return;
+    }
     setOpen(false);
   };
 
   return (
-    <React.Fragment >
-      <ButtonGroup variant="contained" ref={anchorRef} aria-label="split button" sx={{ml: 1}}>
+    <React.Fragment>
+      <ButtonGroup
+        variant="contained"
+        ref={anchorRef}
+        aria-label="split button"
+        sx={{ ml: 1 }}
+      >
         <Button disabled>{title}</Button>
         <Button
           size="small"
-          aria-controls={open ? 'split-button-menu' : undefined}
-          aria-expanded={open ? 'true' : undefined}
+          aria-controls={open ? "split-button-menu" : undefined}
+          aria-expanded={open ? "true" : undefined}
           aria-label="select merge strategy"
           aria-haspopup="menu"
           onClick={handleToggle}
@@ -66,12 +67,16 @@ const DropDownButton = ({title, actions, handleAction}) => {
             {...TransitionProps}
             style={{
               transformOrigin:
-                placement === 'bottom' ? 'center top' : 'center bottom',
+                placement === "bottom" ? "center top" : "center bottom",
             }}
           >
             <Paper>
               <ClickAwayListener onClickAway={handleClose}>
-                <MenuList id="split-button-menu" autoFocusItem sx={{margin: 0}}>
+                <MenuList
+                  id="split-button-menu"
+                  autoFocusItem
+                  sx={{ margin: 0 }}
+                >
                   {actions.map((option, index) => (
                     <MenuItem
                       key={option}
@@ -89,12 +94,12 @@ const DropDownButton = ({title, actions, handleAction}) => {
       </Popper>
     </React.Fragment>
   );
-}
+};
 
 DropDownButton.propTypes = {
-    title: PropTypes.string,
-    handleAction: PropTypes.func,
-    actions: PropTypes.array,
+  title: PropTypes.string,
+  handleAction: PropTypes.func,
+  actions: PropTypes.array,
 };
 
 export default DropDownButton;

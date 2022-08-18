@@ -1,6 +1,5 @@
-import Head from 'next/head'
-import NavDrawer from '../../layout/NavDrawer';
-
+import Head from "next/head";
+import NavDrawer from "../../layout/NavDrawer";
 
 const Email = () => {
   return (
@@ -11,8 +10,8 @@ const Email = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
     </>
-  )
-}
+  );
+};
 
 Email.Layout = NavDrawer;
 

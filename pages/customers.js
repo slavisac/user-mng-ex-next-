@@ -1,8 +1,7 @@
-import * as React from 'react';
-import { Box, Icon, Typography } from '@mui/material';
-import Head from 'next/head'
-import NavDrawer from '../layout/NavDrawer';
-
+import * as React from "react";
+import { Box, Icon, Typography } from "@mui/material";
+import Head from "next/head";
+import NavDrawer from "../layout/NavDrawer";
 
 const Customers = () => {
   return (
@@ -14,18 +13,17 @@ const Customers = () => {
       </Head>
       <Box
         sx={{
-          '& > :not(style)': {
+          "& > :not(style)": {
             m: 2,
           },
         }}
       >
-
         <Icon>star</Icon>
         <Icon>add_circle</Icon>
       </Box>
     </>
-  )
-}
+  );
+};
 
 Customers.Layout = NavDrawer;
 

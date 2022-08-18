@@ -1,22 +1,30 @@
-import { Box, Button, Card, CardActions, CardContent, CardHeader, ListItemText, Menu, MenuItem } from '@mui/material';
-import Head from 'next/head'
+import {
+  Box,
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  CardHeader,
+  ListItemText,
+  Menu,
+  MenuItem,
+} from "@mui/material";
+import Head from "next/head";
 
-import SplitButton from '../components/SplitButton';
-import NavDrawer from '../layout/NavDrawer';
+import SplitButton from "../components/SplitButton";
+import NavDrawer from "../layout/NavDrawer";
 
-import ListResults from '../components/ListResults';
+import ListResults from "../components/ListResults";
 import { orderListColumns } from "../components/columns/order-list-columns";
-import { orders } from '../__mocks__/orders';
-import DropDownButton from '../components/DropDownButton';
-
+import { orders } from "../__mocks__/orders";
+import DropDownButton from "../components/DropDownButton";
 
 const Orders = () => {
-
-  const actions = ['Delete', 'Cancel', 'Generate GLS-label']
+  const actions = ["Delete", "Cancel", "Generate GLS-label"];
 
   const handleAction = (index) => {
-    console.info("You clicked " + actions[index])
-  }
+    console.info("You clicked " + actions[index]);
+  };
 
   return (
     <>
@@ -29,29 +37,34 @@ const Orders = () => {
       <Card
         sx={{
           m: 2,
-          height: 1
-        }}>
+          height: 1,
+        }}
+      >
         <CardHeader
           component={Box}
           title="Orders"
           sx={{
-            color: 'primary.main',
-            boxShadow: "0px 0px 1px grey"
+            color: "primary.main",
+            boxShadow: "0px 0px 1px grey",
           }}
         />
         <CardContent>
           <Box sx={{ mt: 3 }}>
-            <ListResults rows={orders} columns={orderListColumns}/>
+            <ListResults rows={orders} columns={orderListColumns} />
           </Box>
         </CardContent>
-        <CardActions sx={{justifyContent: "flex-end", mr: 1}}>        
+        <CardActions sx={{ justifyContent: "flex-end", mr: 1 }}>
           <Button variant="contained">Add new</Button>
-          <DropDownButton title='Action' actions={actions} handleAction={handleAction} />
+          <DropDownButton
+            title="Action"
+            actions={actions}
+            handleAction={handleAction}
+          />
         </CardActions>
       </Card>
     </>
-  )
-}
+  );
+};
 
 Orders.Layout = NavDrawer;
 

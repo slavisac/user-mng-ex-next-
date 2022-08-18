@@ -1,21 +1,26 @@
-import Head from 'next/head'
-import { Box, Button, Card, CardActions, CardContent, CardHeader} from '@mui/material';
+import Head from "next/head";
+import {
+  Box,
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  CardHeader,
+} from "@mui/material";
 
-import DropDownButton from '../../components/DropDownButton';
-import NavDrawer from '../../layout/NavDrawer';
+import DropDownButton from "../../components/DropDownButton";
+import NavDrawer from "../../layout/NavDrawer";
 
-import ListResults from '../../components/ListResults';
+import ListResults from "../../components/ListResults";
 import { userListColumns } from "../../components/columns/user-list-columns";
-import { users } from '../../__mocks__/users';
-
+import { users } from "../../__mocks__/users";
 
 const Users = () => {
-
-  const actions = ['Delete', 'Purge', 'Reset password'];
+  const actions = ["Delete", "Purge", "Reset password"];
 
   const handleAction = (ix) => {
-    console.log("You click " + actions[ix])
-  }
+    console.log("You click " + actions[ix]);
+  };
 
   return (
     <>
@@ -27,8 +32,9 @@ const Users = () => {
       <Card
         sx={{
           m: 2,
-          height: 1
-        }}>
+          height: 1,
+        }}
+      >
         <CardHeader
           component={Box}
           title="Users"
@@ -40,26 +46,29 @@ const Users = () => {
           //   </Button>
           // }
           sx={{
-            color: 'primary.main',
-            boxShadow: "0px 0px 1px grey"
+            color: "primary.main",
+            boxShadow: "0px 0px 1px grey",
           }}
         />
         <CardContent>
           <Box sx={{ mt: 3 }}>
             <ListResults rows={users} columns={userListColumns} />
           </Box>
-
         </CardContent>
         <CardActions sx={{ justifyContent: "flex-end", mr: 1 }}>
           <Button variant="contained">Add User</Button>
           <Button variant="contained">Activate</Button>
           <Button variant="contained">Deactivate</Button>
-          <DropDownButton title={'Actions'} actions={actions} handleAction={handleAction} />
+          <DropDownButton
+            title={"Actions"}
+            actions={actions}
+            handleAction={handleAction}
+          />
         </CardActions>
       </Card>
     </>
-  )
-}
+  );
+};
 
 Users.Layout = NavDrawer;
 

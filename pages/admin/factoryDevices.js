@@ -1,6 +1,5 @@
-import Head from 'next/head'
-import NavDrawer from '../../layout/NavDrawer';
-
+import Head from "next/head";
+import NavDrawer from "../../layout/NavDrawer";
 
 const FactoryDevices = () => {
   return (
@@ -11,8 +10,8 @@ const FactoryDevices = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
     </>
-  )
-}
+  );
+};
 
 FactoryDevices.Layout = NavDrawer;
 

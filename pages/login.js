@@ -1,43 +1,60 @@
-import * as React from 'react';
-import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import Image from 'next/image';
-import * as Yup from 'yup';
+import * as React from "react";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
+import Link from "@mui/material/Link";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import Image from "next/image";
+import * as Yup from "yup";
 
-import { useRouter } from 'next/router';
-import { useFormik } from 'formik';
-import { AppBar, Card, Container, CssBaseline, Toolbar, Typography } from '@mui/material';
-import Head from 'next/head';
-import Footer from '../components/Footer';
-import InfoIcon from '@mui/icons-material/Info';
-import css from '../styles/Login.module.css';
-import { ThemeProvider } from '@emotion/react';
-import lightTheme from '../styles/theme/lightTheme';
+import { useRouter } from "next/router";
+import { useFormik } from "formik";
+import {
+  AppBar,
+  Card,
+  Container,
+  CssBaseline,
+  Toolbar,
+  Typography,
+} from "@mui/material";
+import Head from "next/head";
+import Footer from "../components/Footer";
+import InfoIcon from "@mui/icons-material/Info";
+import css from "../styles/Login.module.css";
+import { ThemeProvider } from "@emotion/react";
+import lightTheme from "../styles/theme/lightTheme";
 
 const LoginLayout = ({ children }) => {
   return (
-
-    <ThemeProvider theme={lightTheme} >
+    <ThemeProvider theme={lightTheme}>
       <CssBaseline />
       <Box component="main" sx={{ flexGrow: 1 }}>
-        <AppBar position="fixed" >
+        <AppBar position="fixed">
           <Toolbar>
-            <a target="_blank" href="https://wheel.dentwizard.de/" rel="noopener noreferrer">
-              <Image src="/images/header-logo.png" width="135px" height="28.5px" alt="Logo" />
+            <a
+              target="_blank"
+              href="https://wheel.dentwizard.de/"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="/images/header-logo.png"
+                width="135px"
+                height="28.5px"
+                alt="Logo"
+              />
             </a>
 
             <Box sx={{ flexGrow: 1 }} />
-            <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-              <Link href="/about" >
-                <InfoIcon sx={{
-                  cursor: 'pointer',
-                  color: 'primary.contrastText'
-                }} />
+            <Box sx={{ display: { xs: "none", md: "flex" } }}>
+              <Link href="/about">
+                <InfoIcon
+                  sx={{
+                    cursor: "pointer",
+                    color: "primary.contrastText",
+                  }}
+                />
               </Link>
             </Box>
           </Toolbar>
@@ -47,50 +64,43 @@ const LoginLayout = ({ children }) => {
       </Box>
     </ThemeProvider>
   );
-}
+};
 
 const Login = () => {
-
   const router = useRouter();
   const formik = useFormik({
     initialValues: {
-      email: '',
-      password: ''
+      email: "",
+      password: "",
     },
     validationSchema: Yup.object({
-      email: Yup
-        .string()
-        .email(
-          'Must be a valid email')
+      email: Yup.string()
+        .email("Must be a valid email")
         .max(255)
-        .required(
-          'Email is required'),
-      password: Yup
-        .string()
-        .max(255)
-        .required(
-          'Password is required')
+        .required("Email is required"),
+      password: Yup.string().max(255).required("Password is required"),
     }),
     onSubmit: () => {
-      router.push('/');
-    }
+      router.push("/");
+    },
   });
 
   return (
-    <Box
-      maxWidth="sm"
-      className={css.outerBox}
-    >
-      <Image src="/images/header-logo2.png" width={260} height={55} alt="Logo" />
-      <Card
-        className={css.card}
-      >
+    <Box maxWidth="sm" className={css.outerBox}>
+      <Image
+        src="/images/header-logo2.png"
+        width={260}
+        height={55}
+        alt="Logo"
+      />
+      <Card className={css.card}>
         <Box component="form" onSubmit={formik.handleSubmit} sx={{ mt: 1 }}>
           <Typography
             color="primary"
             variant="h5"
             display="flex"
-            justifyContent="center">
+            justifyContent="center"
+          >
             Login
           </Typography>
           <TextField
@@ -134,25 +144,25 @@ const Login = () => {
           </Button>
           <Grid container>
             <Grid item xs>
-              <Link href="/"
+              <Link
+                href="/"
                 variant="body2"
                 underline="hover"
                 sx={{
-                  cursor: 'pointer'
-                }}>
+                  cursor: "pointer",
+                }}
+              >
                 Forgot password?
               </Link>
             </Grid>
           </Grid>
         </Box>
       </Card>
-    </Box >
+    </Box>
   );
-
-}
+};
 
 const SignIn = () => {
-
   return (
     <>
       <Head>
@@ -163,7 +173,7 @@ const SignIn = () => {
       <Login />
     </>
   );
-}
+};
 
 SignIn.Layout = LoginLayout;
 
